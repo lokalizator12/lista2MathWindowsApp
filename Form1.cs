@@ -38,13 +38,10 @@ namespace lista2
             try
             {
                 a1 = Convert.ToInt32(a);
+
                 volume = (int)(Math.Pow(a1, 3));
-                if (a1 > 0)
-                {
-                    area = (6 * (a1 * a1));
-                    listBox1.Items.Add("volume - " + volume.ToString());
-                    listBox1.Items.Add("Cube surface area - " + area.ToString());
-                }
+                area = (6 * (a1 * a1));
+            }
                 else
                 {
                     MessageBox.Show("1 Zadanie - error. Enter only a > 0");
@@ -52,10 +49,9 @@ namespace lista2
             }
             catch (Exception er)
             {
-                MessageBox.Show("Error.Enter only INT numbers");
-
             }
-            
+
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,29 +80,39 @@ namespace lista2
             {
                 a = Convert.ToInt32(textBox2.Text);
                 b = Convert.ToInt32(textBox3.Text);
-                sum = a + b;
-                if (sum <= 10 && sum > 0)
-                {
-                    c = (int)(Math.Pow(a, 3) * Math.Pow(b, 3));
-                }
-                else if (sum >= 10 && sum <= 100)
-                {
-                    c = sum;
-                }
-                else if (sum > 100)
-                {
-                    c = a - b;
-                }
-                else if (sum <= 0)
-                {
-                    c = random.Next();
-                }
-                else
-                {
-                    c = 0;
-                }
-                listBox1.Items.Add(c.ToString());
+
+
             }
+            catch (Exception err)
+            {
+                textBox2.Text = "";
+                textBox3.Text = "";
+                label5.Text = "Error. Enter only INT numbers";
+                Console.WriteLine(err.Message);
+            }
+
+            sum = a + b;
+            if (sum <= 10 && sum > 0)
+            {
+                c = (int)(Math.Pow(a, 3) * Math.Pow(b, 3));
+            }
+            else if (sum >= 10 && sum <= 100)
+            {
+                c = sum;
+            }
+            else if (sum > 100)
+            {
+                c = a - b;
+            }
+            else if (sum <= 0)
+            {
+                c = random.Next();
+            }
+            else
+            {
+                c = 0;
+            }
+        }
             catch (Exception err)
             {
                 MessageBox.Show("Error. Enter only INT numbers");
@@ -121,18 +127,19 @@ namespace lista2
             try
             {
                 a = Convert.ToInt32(textBox4.Text);
-                if (a > 0)
+            {
+                textBox4.Text = "";
+                label9.Text = "Error.Enter only INT numbers";
+            }
+            for (int i = 1; i <= a; i++)
+            {
+                if (a % i == 0)
                 {
-                    for (int i = 1; i <= a; i++)
-                    {
-                        if (a % i == 0)
-                        {
-                            s += i + " ";
-                        }
-
-                    }
-                    listBox1.Items.Add(s);
+                    s += i + " ";
                 }
+            }
+                    listBox1.Items.Add(s);
+        }
                 else
                 {
                     MessageBox.Show("Error.Enter only A > 0");
@@ -148,32 +155,27 @@ namespace lista2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            int max = 0;
-            foreach (int b in list)
+           
+
+            do
             {
-                if (b > max)
-                {
-                    max = b;
-                }
-
-            }
-            listBox1.Items.Add(max);
-            list.Clear();
-
+                if (s[i] == '0')
+                { break; }
+                x = s[i];
+                y = x - '0';
+                max = Math.Max(max, y);
+                i++;
+            } while (true);
+             label12.Text = Convert.ToString(max);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int b, max = 0;
             try
             {
-                b = Convert.ToInt32(textBox5.Text);
-                list.Add(b);
             }
             catch (Exception err)
             {
-                MessageBox.Show("Error. Enter only INT numbers");
             }
 
             textBox5.Clear();
@@ -185,27 +187,18 @@ namespace lista2
             try
             {
                 a = Convert.ToInt32(textBox6.Text);
-                if (a > 0)
-                {
-                    for (int i = 1; i <= a; i++)
-                    {
-                        for (int j = 1; j <= a; j++)
-                        {
-                            int result = i * j;
-                            listBox1.Items.Add("|" + i + "*" + j + "=" + result + "|");
-
-                        }
-                        listBox1.Items.Add("________");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error.Enter only A > 0");
-                }
+            {
+                label15.Text = "Error.Enter only INT numbers";
             }
+            for (int i = 1; i <= a; i++)
+            {
+                for (int j = 1; j <= a; j++)
+                {
+                    int result = i * j;
+                }
             catch (Exception err)
             {
-
+                
                 MessageBox.Show("Error.Enter only INT numbers");
             }
 
