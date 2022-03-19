@@ -38,23 +38,24 @@ namespace lista2
             try
             {
                 a1 = Convert.ToInt32(a);
+                volume = (int)(Math.Pow(a1, 3));
+                if (a1 > 0)
+                {
+                    area = (6 * (a1 * a1));
+                    listBox1.Items.Add("volume - " + volume.ToString());
+                    listBox1.Items.Add("Cube surface area - " + area.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("1 Zadanie - error. Enter only a > 0");
+                }
             }
             catch (Exception er)
             {
                 MessageBox.Show("Error.Enter only INT numbers");
 
             }
-            volume = (int)(Math.Pow(a1, 3));
-            if (a1 > 0)
-            {
-                area = (6 * (a1 * a1));
-                listBox1.Items.Add("Result: volume - " + volume.ToString());
-                listBox1.Items.Add("Cube surface area - " + area.ToString());
-            }
-            else
-            {
-                MessageBox.Show("1 Zadanie - error. Enter only a > 0");
-            }
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,7 +105,7 @@ namespace lista2
                 {
                     c = 0;
                 }
-                listBox1.Items.Add("Result: " + c.ToString());
+                listBox1.Items.Add(c.ToString());
             }
             catch (Exception err)
             {
@@ -130,7 +131,7 @@ namespace lista2
                         }
 
                     }
-                    listBox1.Items.Add("Result: " + s);
+                    listBox1.Items.Add(s);
                 }
                 else
                 {
