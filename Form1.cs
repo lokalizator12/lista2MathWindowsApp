@@ -31,6 +31,12 @@ namespace lista2
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            szescian();
+        }
+
+        private void szescian()
+        {
             listBox1.Items.Clear();
             string a = textBox1.Text;
 
@@ -38,41 +44,26 @@ namespace lista2
             try
             {
                 a1 = Convert.ToInt32(a);
+                volume = (int)(Math.Pow(a1, 3));
+                if (a1 > 0)
+                {
+                    area = (6 * (a1 * a1));
+                    listBox1.Items.Add("volume - " + volume.ToString());
+                    listBox1.Items.Add("Cube surface area - " + area.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("1 Zadanie - error. Enter only a > 0");
+                }
             }
             catch (Exception er)
             {
                 MessageBox.Show("Error.Enter only INT numbers");
 
             }
-            volume = (int)(Math.Pow(a1, 3));
-            if (a1 > 0)
-            {
-                area = (6 * (a1 * a1));
-                listBox1.Items.Add("Result: volume - " + volume.ToString());
-                listBox1.Items.Add("Cube surface area - " + area.ToString());
-            }
-            else
-            {
-                MessageBox.Show("1 Zadanie - error. Enter only a > 0");
-            }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void suma()
         {
             listBox1.Items.Clear();
             int a = 0; int b = 0; int c = 0;
@@ -104,12 +95,32 @@ namespace lista2
                 {
                     c = 0;
                 }
-                listBox1.Items.Add("Result: " + c.ToString());
+                listBox1.Items.Add(c.ToString());
             }
             catch (Exception err)
             {
                 MessageBox.Show("Error. Enter only INT numbers");
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            suma();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -130,7 +141,7 @@ namespace lista2
                         }
 
                     }
-                    listBox1.Items.Add("Result: " + s);
+                    listBox1.Items.Add(s);
                 }
                 else
                 {
@@ -147,6 +158,12 @@ namespace lista2
 
         private void button4_Click(object sender, EventArgs e)
         {
+            maks();
+
+        }
+
+        private void maks()
+        {
             listBox1.Items.Clear();
             int max = 0;
             foreach (int b in list)
@@ -159,7 +176,6 @@ namespace lista2
             }
             listBox1.Items.Add(max);
             list.Clear();
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -239,6 +255,16 @@ namespace lista2
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
+        }
+
+        private void listBox1_SelectedIndexChanged_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
