@@ -95,7 +95,7 @@ namespace lista2
                 {
                     c = 0;
                 }
-                listBox1.Items.Add(c.ToString());
+                listBox1.Items.Add("Result: " + c.ToString());
             }
             catch (Exception err)
             {
@@ -141,7 +141,7 @@ namespace lista2
                         }
 
                     }
-                    listBox1.Items.Add(s);
+                    listBox1.Items.Add("Result: " + s);
                 }
                 else
                 {
@@ -158,12 +158,6 @@ namespace lista2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            maks();
-
-        }
-
-        private void maks()
-        {
             listBox1.Items.Clear();
             int max = 0;
             foreach (int b in list)
@@ -176,19 +170,16 @@ namespace lista2
             }
             listBox1.Items.Add(max);
             list.Clear();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int b, max = 0;
             try
             {
-                b = Convert.ToInt32(textBox5.Text);
-                list.Add(b);
             }
             catch (Exception err)
             {
-                MessageBox.Show("Error. Enter only INT numbers");
             }
 
             textBox5.Clear();
@@ -200,27 +191,18 @@ namespace lista2
             try
             {
                 a = Convert.ToInt32(textBox6.Text);
-                if (a > 0)
-                {
-                    for (int i = 1; i <= a; i++)
-                    {
-                        for (int j = 1; j <= a; j++)
-                        {
-                            int result = i * j;
-                            listBox1.Items.Add("|" + i + "*" + j + "=" + result + "|");
-
-                        }
-                        listBox1.Items.Add("________");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error.Enter only A > 0");
-                }
+            {
+                label15.Text = "Error.Enter only INT numbers";
             }
+            for (int i = 1; i <= a; i++)
+            {
+                for (int j = 1; j <= a; j++)
+                {
+                    int result = i * j;
+                }
             catch (Exception err)
             {
-
+                
                 MessageBox.Show("Error.Enter only INT numbers");
             }
 
